@@ -311,7 +311,7 @@ function registerSendQueryAndConnect() {
                         console.log("query: ", query.substring(0,3));
 
                         if (query.substring(0,3) == "%23") {
-                            query = query.substring(3,6);
+                            query = query.substring(3,5);
                         }
                         else {
                             query = query.substring(0,2);
