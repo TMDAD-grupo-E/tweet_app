@@ -54,7 +54,7 @@ public class TwitterLookupService {
 	public Trends trends(String woeid) {
 		Twitter twitter = new TwitterTemplate(consumerKey, consumerSecret, accessToken, accessTokenSecret);
 		System.out.println("entro en trends");
-		System.out.println(twitter.searchOperations().getLocalTrends(adapter.getWOEId(woeid)));
+		//System.out.println(twitter.searchOperations().getLocalTrends(adapter.getWOEId(woeid)));
 		return twitter.searchOperations().getLocalTrends(adapter.getWOEId(woeid));
 	}
 

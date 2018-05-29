@@ -31,15 +31,5 @@ public class SearchController {
 		twitter.search(query);
 	}
 
-    @RequestMapping("/trends")
-    public Trends trends(@RequestParam("c") String c, Model m) {
-        return twitter.trends(c);
-    }
 
-
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(NullPointerException.class)
-    public Trends handleNullPointerException(Model m) {
-        return twitter.trendsEmptyAnswer();
-    }
 }
