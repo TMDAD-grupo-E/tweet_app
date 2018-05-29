@@ -268,8 +268,12 @@ function registerSearchCountry() {
 }
 
 function setConnected(connected) {
+    jQuery.noConflict();
+            jQuery(function(){
+                var $ = jQuery;
 	var search = $('#submitsearch');
 	search.prop('disabled', !connected);
+	})
 }
 
 function registerSendQueryAndConnect() {
@@ -279,11 +283,11 @@ function registerSendQueryAndConnect() {
             var $ = jQuery;
             var socket = new SockJS("/twitter");
             var stompClient = Stomp.over(socket);
-            /*stompClient.connect({}, function(frame) {
+            stompClient.connect({}, function(frame) {
                 setConnected(true);
                 console.log('Connected: ' + frame);
 
-                subscriptionTrends = stompClient.subscribe("/queue/trends", function(data) {
+                /*subscriptionTrends = stompClient.subscribe("/queue/trends", function(data) {
 
                     console.log("Subscribed to trendings");
 
@@ -298,8 +302,8 @@ function registerSendQueryAndConnect() {
                             console.log({"trends": array})
                             $("#trendingsBlock").html(Mustache.render(tt_template, {"trends": array}));
 
-                })
-            });*/
+                })*/
+            });
             $("#search_hashtag").submit(
                     function(event) {
                         event.preventDefault();
