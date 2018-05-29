@@ -308,6 +308,14 @@ function registerSendQueryAndConnect() {
                         }
                         var query = $("#hash_button").val();
 
+                        console.log("query: ", query.substring(0,3));
+
+                        if (query.substring(0,3) == "%23") {
+                            query = query.substring(3,6);
+                        }
+                        else {
+                            query = query.substring(0,2);
+                        }
                         //acortar
 
                         stompClient.send("/app/search", {}, query);
